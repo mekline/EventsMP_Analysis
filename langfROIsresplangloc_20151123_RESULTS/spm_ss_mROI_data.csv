@@ -1,0 +1,32 @@
+Data
+ROI#,ROI size,average localizer mask size,inter-subject overlap,Subject#1[1],Subject#2[1],Subject#3[1],Subject#4[1],Subject#5[1],Subject#6[1]
+1,2948,294,1.000000,0.809106,0.412216,1.326699,0.370976,0.855584,0.703523
+2,1627,162,1.000000,0.461738,0.489144,0.969604,0.488977,0.944610,0.885323
+3,644,64,1.000000,0.545750,0.223992,0.525373,0.135832,0.280296,0.326285
+4,743,74,1.000000,0.934993,0.267850,0.905732,0.653612,1.294192,0.970751
+5,462,46,1.000000,2.462713,0.445155,1.418836,0.482540,1.741441,0.784421
+6,370,37,1.000000,1.435605,0.270150,0.843442,0.284080,1.595434,1.068639
+
+Weights
+ROI#,Subject#1,Subject#2,Subject#3,Subject#4,Subject#5,Subject#6
+1,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000
+2,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000
+3,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000
+4,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000
+5,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000
+6,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000
+
+quality control (localizer mask sizes)
+Subject#,Session/Partition#,filename,ROI#1,ROI#2,ROI#3,ROI#4,ROI#5,ROI#6
+1,1,/mindhive/evlab/u/mekline/Desktop/EventsMP/Data/FED_20150720a_3T2/firstlevel_langlocSN/locT_0041_percentile-ROI-level0.1.img,294,162,64,74,46,37
+1,2,/mindhive/evlab/u/mekline/Desktop/EventsMP/Data/FED_20150720a_3T2/firstlevel_langlocSN/locT_0042_percentile-ROI-level0.1.img,294,162,64,74,46,37
+2,1,/mindhive/evlab/u/mekline/Desktop/EventsMP/Data/FED_20150820a_3T2/firstlevel_langlocSN/locT_0033_percentile-ROI-level0.1.img,294,162,64,74,46,37
+2,2,/mindhive/evlab/u/mekline/Desktop/EventsMP/Data/FED_20150820a_3T2/firstlevel_langlocSN/locT_0034_percentile-ROI-level0.1.img,294,162,64,74,46,37
+3,1,/mindhive/evlab/u/mekline/Desktop/EventsMP/Data/FED_20150823_3T2/firstlevel_langlocSN/locT_0033_percentile-ROI-level0.1.img,294,162,64,74,46,37
+3,2,/mindhive/evlab/u/mekline/Desktop/EventsMP/Data/FED_20150823_3T2/firstlevel_langlocSN/locT_0034_percentile-ROI-level0.1.img,294,162,64,74,46,37
+4,1,/mindhive/evlab/u/mekline/Desktop/EventsMP/Data/FED_20151118a_3T1/firstlevel_langlocSN/locT_0041_percentile-ROI-level0.1.img,294,162,64,74,46,37
+4,2,/mindhive/evlab/u/mekline/Desktop/EventsMP/Data/FED_20151118a_3T1/firstlevel_langlocSN/locT_0042_percentile-ROI-level0.1.img,294,162,64,74,46,37
+5,1,/mindhive/evlab/u/mekline/Desktop/EventsMP/Data/FED_20151119a_3T1/firstlevel_langlocSN/locT_0033_percentile-ROI-level0.1.img,294,162,64,74,46,37
+5,2,/mindhive/evlab/u/mekline/Desktop/EventsMP/Data/FED_20151119a_3T1/firstlevel_langlocSN/locT_0034_percentile-ROI-level0.1.img,294,162,64,74,46,37
+6,1,/mindhive/evlab/u/mekline/Desktop/EventsMP/Data/FED_20151120b_3T1/firstlevel_langlocSN/locT_0041_percentile-ROI-level0.1.img,294,162,64,74,46,37
+6,2,/mindhive/evlab/u/mekline/Desktop/EventsMP/Data/FED_20151120b_3T1/firstlevel_langlocSN/locT_0042_percentile-ROI-level0.1.img,294,162,64,74,46,37
