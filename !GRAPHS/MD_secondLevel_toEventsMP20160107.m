@@ -19,11 +19,12 @@
 function secondLevel_lastCsvToGraph(graph_title,cont_inds,cont_names)
 %% CHANGE
 % filename for the jpg that is saved
-save_filename = sprintf('SyntCat_%s', graph_title);
+save_filename = sprintf('EventsMP_%s', graph_title);
+save_dir = fullfile(pwd);
 % where to find the csv files to graph
-csv_dir = fullfile(pwd, '..', 'syntcat2', 'RESULTS_syntcat_ev');
+csv_dir = fullfile(pwd, '..', 'MDfROIsrespEventsMP_20160107_RESULTS');
 % how many contrasts were run on this subject (total)
-total_num_contrasts = 23;
+total_num_contrasts = 19;
 
 %% SETUP
 % Handle input
@@ -34,7 +35,16 @@ end
 
 %%%% Initialize %%%
 % CSV stuff
-num_rois = 6;
+
+%LOCALIZER INFO - things specific to the fact that this is measuring MD
+%ROIs
+num_rois = 18;
+roi_pres_order = [1:18]'; % the order we want to display things in
+roi_names = {'LIFGop','RIFGop','LMFG','RMFG','LMFGorb','RMFGorb','LPrecG',...
+    'RPrecG','LInsula','RInsula','LSMA','RSMA','LParInf','RParInf',...
+    'LParSup','RParSup','LACC','RACC'};
+
+%Other CSV info
 curr_num_conts = length(cont_inds);
 % Will be array of structs. Struct will have fields name, PSC, and stderr.
 % Each element of array will represent one contrast
@@ -51,8 +61,6 @@ if ~exist(csv_fullname, 'file'), error('%s doesn''t exist!',csv_fullname); end
 csv_contents = read_mixed_csv(csv_fullname, ',');
 
 % Graph stuff
-roi_pres_order = [6 4 5 2 1 3]'; % the order we want to display things in
-roi_names = {'LPostTemp', 'LAntTemp', 'LAngG', 'LIFG', 'LMFG', 'LIFGorb'};
 y_vals = nan(num_rois, curr_num_conts); 
 stderr_vals = nan(num_rois, curr_num_conts);
 
@@ -103,11 +111,18 @@ for i = 1:curr_num_conts
       errorbar(x, y_vals(:,i), stderr_vals(:,i), 'k', 'linestyle', 'none');
 end
 
-% label things
+% label things - MK added some extra to squeeze in all ROI labels and make
+% ticks work right since she broke them
 xlabel('fROI', 'FontSize', 12, 'FontWeight', 'bold');
 ylabel('% BOLD signal change', 'FontSize', 12, 'FontWeight', 'bold');
 title(graph_title, 'FontSize', 16); 
+
+
+tickloc = (1:num_rois);
+set(gca,'Xtick',tickloc);
+
 set(gca, 'XTicklabel', roi_names);
+set(gca, 'XTickLabelRotation', 45);
 legend(cont_names);
 
 % Style
@@ -116,6 +131,7 @@ set(gca,'YGrid', 'on');
 set(gca, 'GridLineStyle','-');
 
 % Save
-save_dir = fullfile(csv_dir, 'figures');
+%save_dir = fullfile(csv_dir, 'figures');
+display(save_dir)
 if ~exist(save_dir, 'dir'), mkdir(save_dir); end
 saveas(fig, fullfile(save_dir, save_filename), 'jpg');
