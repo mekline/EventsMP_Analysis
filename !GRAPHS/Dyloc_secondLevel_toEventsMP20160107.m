@@ -38,18 +38,11 @@ end
 
 %LOCALIZER INFO - things specific to the fact that this is measuring MD
 %ROIs
-num_rois = 18;
-roi_pres_order = [1:18]'; % the order we want to display things in
-roi_names = {'LIFGop','RIFGop','LMFG','RMFG','LMFGorb','RMFGorb','LPrecG',...
-    'RPrecG','LInsula','RInsula','LSMA','RSMA','LParInf','RParInf',...
-    'LParSup','RParSup','LACC','RACC'};
+num_rois = 16; %NOTE: this should (I think) be the # of ROIs in the csv, even if you will only display some
+roi_names = {'','RPPA','LRSC','RRSC','LPPA','RTOS','LTOS',...
+    '','','','','','','','',''}; %I don't know the names of all the Dyloc parcels!!
 
-2 = R PPA
-3 = L RSC
-4 = R RSC
-5 = L PPA
-6 = R TOS
-7 = L TOS
+roi_pres_order = [2,5]'; % the order we want to display things in. DOESN"T NEED TO CONTAIN ALL THE ROIS THAT EXIST!
 
 
 
@@ -118,7 +111,10 @@ hold on;
 groupwidth = min(0.8, curr_num_conts/(curr_num_conts+1.5));
 for i = 1:curr_num_conts
       % Based on barweb.m by Bolu Ajiboye from MATLAB File Exchange
-      x = (1:num_rois) - groupwidth/2 + (2*i-1) * groupwidth / (2*curr_num_conts);  % Aligning error bar with individual bar
+      %We might not be showing all the roi's, so make sure we get the right
+      %number here!
+      num_rois_shown = length(roi_pres_order);
+      x = (1:num_rois_shown) - groupwidth/2 + (2*i-1) * groupwidth / (2*curr_num_conts);  % Aligning error bar with individual bar
       errorbar(x, y_vals(:,i), stderr_vals(:,i), 'k', 'linestyle', 'none');
 end
 
