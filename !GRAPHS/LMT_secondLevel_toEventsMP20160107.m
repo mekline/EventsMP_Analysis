@@ -19,10 +19,10 @@
 function secondLevel_lastCsvToGraph(graph_title,cont_inds,cont_names)
 %% CHANGE
 % filename for the jpg that is saved
-save_filename = sprintf('SyntCat_%s', graph_title);
+save_filename = sprintf('EventsMP_%s', graph_title);
 save_dir = fullfile(pwd);
 % where to find the csv files to graph
-csv_dir = fullfile(pwd, '..', 'MDfROIsrespEventsMP_20160107_RESULTS');
+csv_dir = fullfile(pwd, '..', 'Right_MTfROIsrespEventsMP_20160107_RESULTS');
 % how many contrasts were run on this subject (total)
 total_num_contrasts = 19;
 
@@ -38,11 +38,14 @@ end
 
 %LOCALIZER INFO - things specific to the fact that this is measuring MD
 %ROIs
-num_rois = 18;
-roi_pres_order = [1:18]'; % the order we want to display things in
-roi_names = {'LIFGop','RIFGop','LMFG','R MFG','LMFGorb','R MFGorb','LPrecG',...
-    'R PrecG','LInsula','R Insula','LSMA','R SMA','LParInf','R ParInf',...
-    'LParSup','R ParSup','LACC','R ACC'}
+num_rois = 1; %NOTE: this should (I think) be the # of ROIs in the csv, even if you will only display some
+roi_names = {'RMT'}; %I don't know the names of all the Dyloc parcels!!
+
+roi_pres_order = [1]'; % the order we want to display things in. DOESN"T NEED TO CONTAIN ALL THE ROIS THAT EXIST!
+
+%NOTE: if there is only one ROI, various graphing abilities currently misbehave,
+%because everything tries clustering inside the first bar instead of first group...
+
 
 %Other CSV info
 curr_num_conts = length(cont_inds);
@@ -78,7 +81,8 @@ for i = 1:curr_num_conts
     % loop through rois, pull out psc and stderr for each
     cont_struct.psc = nan(1, num_rois);
     cont_struct.stderr = nan(1, num_rois);
-    for j = 1:num_rois
+    
+    for j = 1:num_rois %MK update: change this to be able to choose a subset of the ROIs
         roi_row = roi_start_row+j-1;
         roi_psc = csv_contents{roi_row, psc_i_col};
         cont_struct.psc(j) = str2double(roi_psc);
@@ -103,19 +107,34 @@ stderr_vals = stderr_vals(roi_pres_order,:);
 % Values
 hb = bar(y_vals);
 % Error bars (annoying)
-hold on;
-groupwidth = min(0.8, curr_num_conts/(curr_num_conts+1.5));
-for i = 1:curr_num_conts
-      % Based on barweb.m by Bolu Ajiboye from MATLAB File Exchange
-      x = (1:num_rois) - groupwidth/2 + (2*i-1) * groupwidth / (2*curr_num_conts);  % Aligning error bar with individual bar
-      errorbar(x, y_vals(:,i), stderr_vals(:,i), 'k', 'linestyle', 'none');
-end
+num_rois_shown = length(roi_pres_order);
+if num_rois_shown > 1
+    hold on;
+    groupwidth = min(0.8, curr_num_conts/(curr_num_conts+1.5));
+    for i = 1:curr_num_conts
+          % Based on barweb.m by Bolu Ajiboye from MATLAB File Exchange
+          %We might not be showing all the roi's, so make sure we get the right
+          %number here!
+          x = (1:num_rois_shown) - groupwidth/2 + (2*i-1) * groupwidth / (2*curr_num_conts);  % Aligning error bar with individual bar
+          errorbar(x, y_vals(:,i), stderr_vals(:,i), 'k', 'linestyle', 'none');
+    end
+else %Just put each error bar in the middle of each bar
+    hold on;
+    errorbar(y_vals(:), stderr_vals(:), 'k', 'linestyle', 'none');
 
-% label things
+end
+% label things - MK added some extra to squeeze in all ROI labels and make
+% ticks work right since she broke them
 xlabel('fROI', 'FontSize', 12, 'FontWeight', 'bold');
 ylabel('% BOLD signal change', 'FontSize', 12, 'FontWeight', 'bold');
 title(graph_title, 'FontSize', 16); 
+
+
+tickloc = (1:num_rois);
+set(gca,'Xtick',tickloc);
+
 set(gca, 'XTicklabel', roi_names);
+set(gca, 'XTickLabelRotation', 45);
 legend(cont_names);
 
 % Style
