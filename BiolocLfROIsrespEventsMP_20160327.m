@@ -6,7 +6,9 @@ MyDataFolder = '/mindhive/evlab/u/mekline/Desktop/EventsMP/Data' % path to the d
 firstlevel_loc = 'firstlevel_Bioloc' % path to the first-level analysis directory for the lang localizer or whatever
 firstlevel_crit = 'firstlevel_EventsMP' % path  for your critical exp - in this case measuring the langloc response itself
 
-participant_sessions = {{'FED_20150720a_3T2','FED_20150820a_3T2','FED_20150823_3T2','FED_20151118a_3T1','FED_20151119a_3T1','FED_20151120b_3T1'}} %The subject IDs of individual subjects you'll analyze
+%3/27 NOTE: 0720 (sub 1) didn't have Bioloc; several others missing bc 1st level analysis is borked.  Rerun once sorted...
+participant_sessions = {{'FED_20150820a_3T2','FED_20151118a_3T1','FED_20151119a_3T1',...
+    '207_FED_20160105b_3T2','338_FED_20160105d_3T2','301_FED_20160119a_3T2','214_FED_20160119b_3T2','348_FED_20160119c_3T2','349_FED_20160119d_3T2','343_FED_20160121d_3T2'}} %The subject IDs of individual subjects you'll analyze
 
 MyOutputFolder = '/mindhive/evlab/u/mekline/Desktop/EventsMP/Toolbox/BiolocfROIsrespEventsMP_20160327_RESULTS' %Where should the results wind up?
 
