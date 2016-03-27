@@ -42,7 +42,7 @@ num_rois = 16; %NOTE: this should (I think) be the # of ROIs in the csv, even if
 roi_names = {'','RPPA','LRSC','RRSC','LPPA','RTOS','LTOS',...
     '','','','','','','','',''}; %I don't know the names of all the Dyloc parcels!!
 
-roi_pres_order = [2,5]'; % the order we want to display things in. DOESN"T NEED TO CONTAIN ALL THE ROIS THAT EXIST!
+roi_pres_order = [2:7]'; % the order we want to display things in. DOESN"T NEED TO CONTAIN ALL THE ROIS THAT EXIST!
 
 
 
