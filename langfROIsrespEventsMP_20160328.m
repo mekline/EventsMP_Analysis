@@ -22,14 +22,12 @@ experiments(1)=struct(...
     'name','loc',...% language localizer 
     'pwd1','/mindhive/evlab/u/mekline/Desktop/EventsMP/Data',...  % path to the data directory
     'pwd2','firstlevel_langlocSN',... % path to the first-level analysis directory for the lang localizer
-    'data',{{'FED_20150820a_3T2','FED_20151118a_3T1','FED_20151119a_3T1',...
-    '207_FED_20160105b_3T2','338_FED_20160105d_3T2','301_FED_20160119a_3T2','214_FED_20160119b_3T2','348_FED_20160119c_3T2','343_FED_20160121d_3T2'}}); % subject IDs
+    'data',{{'FED_20150720a_3T2','FED_20150820a_3T2','FED_20150823_3T2','FED_20151118a_3T1','FED_20151119a_3T1','FED_20151120b_3T1','207_FED_20160105b_3T2','338_FED_20160105d_3T2','301_FED_20160119a_3T2','214_FED_20160119b_3T2','348_FED_20160119c_3T2','343_FED_20160121d_3T2'}}); % subject IDs
 experiments(2)=struct(...
     'name','crit',...% non-lang expt
     'pwd1','/mindhive/evlab/u/mekline/Desktop/EventsMP/Data',...
     'pwd2','firstlevel_EventsMP',...  % path to the first-level analysis directory for the critical task
-    'data',{{'FED_20150820a_3T2','FED_20151118a_3T1','FED_20151119a_3T1',...
-    '207_FED_20160105b_3T2','338_FED_20160105d_3T2','301_FED_20160119a_3T2','214_FED_20160119b_3T2','348_FED_20160119c_3T2','343_FED_20160121d_3T2'}});
+    'data',{{'FED_20150720a_3T2','FED_20150820a_3T2','FED_20150823_3T2','FED_20151118a_3T1','FED_20151119a_3T1','FED_20151120b_3T1','207_FED_20160105b_3T2','338_FED_20160105d_3T2','301_FED_20160119a_3T2','214_FED_20160119b_3T2','348_FED_20160119c_3T2','343_FED_20160121d_3T2'}});
 %%%
 
 localizer_spmfiles={};
