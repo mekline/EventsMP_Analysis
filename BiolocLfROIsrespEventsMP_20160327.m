@@ -10,7 +10,7 @@ firstlevel_crit = 'firstlevel_EventsMP' % path  for your critical exp - in this 
 participant_sessions = {{'FED_20150820a_3T2','FED_20151118a_3T1','FED_20151119a_3T1',...
     '207_FED_20160105b_3T2','338_FED_20160105d_3T2','301_FED_20160119a_3T2','214_FED_20160119b_3T2','348_FED_20160119c_3T2','349_FED_20160119d_3T2','343_FED_20160121d_3T2'}} %The subject IDs of individual subjects you'll analyze
 
-MyOutputFolder = '/mindhive/evlab/u/mekline/Desktop/EventsMP/Toolbox/BiolocfROIsrespEventsMP_20160327_RESULTS' %Where should the results wind up?
+MyOutputFolder = '/mindhive/evlab/u/mekline/Desktop/EventsMP/Toolbox/BiolocLfROIsrespEventsMP_20160327_RESULTS' %Where should the results wind up?
 
 loc_cons = {{'Bio-Sfm'}} %Which contrast used to localize issROIs?
 crit_cons = {{'SameAll','SameMan','SamePath','SameAg','DiffAll','Cont','DiffAll-Cont','SameMan-Cont','SamePath-Cont', 'SameAg-Cont','SameAll-Cont','All-Cont','DiffAll-SameAll','DiffAll-SameMan','DiffAll-SamePath','DiffAll-SameAg', 'SameMan-SameAll','SamePath-SameAll','SameAg-SameAll'}} %What contrasts of the crit. experiment do we want to measure there? In this case they match bc we are measuring each person's lang centers response to lang stimuli!
